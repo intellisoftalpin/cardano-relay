@@ -1,17 +1,18 @@
-# Cardano Relay setup
-Docker compose file to quickly setup cardano relay 
 
-## Installation guide
+# Cardano Relay Setup
+A Docker Compose file to quickly set up a Cardano relay.
 
-### Setting path to cnode script
+## Installation Guide
 
-Set the PATH to the scripts/ folder, so the cnode script available anywhere
+### Setting Path to cnode Script
 
-in cnode file change the env variable to the compose file, if the path is different on your machine
+Set the PATH to the `scripts/` folder, so the `cnode` script is available anywhere. 
 
-### Create env variables to location of cardano files on your host
+In the `cnode` file, change the `env` variable to the compose file, if the path is different on your machine.
 
-Create in the same folder where docker-compose file is located the .env file with the following variables
+### Creating Environment Variables for Cardano Files on Your Host
+
+Create a `.env` file in the same folder where the Docker Compose file is located with the following variables:
 
 ```bash
 CNODE_IPC="/your/path/cardano-node/ipc"
@@ -21,51 +22,55 @@ PORT=3001
 METRICS_PORT=12798
 ```
 
-CNODE_IPC - path to socket file   
-CNODE_DATA - path to bloackchain data   
-CNODE_CONF_BASE - path to configuration folder   
-PORT - Cardano node port 
-METRICS_PORT - default port for prometheus metrics
+- `CNODE_IPC`: Path to the socket file
+- `CNODE_DATA`: Path to the blockchain data
+- `CNODE_CONF_BASE`: Path to the configuration folder
+- `PORT`: Cardano node port
+- `METRICS_PORT`: Default port for Prometheus metrics
 
-### Allow the ports in the host firewall
+### Allowing the Ports in the Host Firewall
 
 ```bash
 sudo ufw allow 3001
 sudo ufw allow 12798
 ```
 
-### Run the server
+### Running the Server
 
-Use the following commands to work with cardano service
+Use the following commands to work with the Cardano service:
 
-#### Start the service
+#### Start the Service
 
 ```bash
 cnode start 
 ```
 
-#### Stop the service
+#### Stop the Service
+
+```bash
+cnode stop 
+```
+
+#### Service Status
 
 ```bash
 cnode status 
 ```
 
-#### Status of the service
-
-```bash
-cnode status 
-```
-
-#### Synchronization status of the service
+#### Synchronization Status of the Service
 
 ```bash
 cnode syncstatus 
 ```
 
-#### Status of the service
+#### Cardano Node Version Information
 
 ```bash
-cnode status 
+cnode version 
 ```
 
+#### Cardano Node Size on the Host
 
+```bash
+cnode size 
+```
