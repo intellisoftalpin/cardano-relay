@@ -16,6 +16,6 @@ services:
       - ${CNODE_DATA}:/opt/cardano/data  # Mount the host data directory to the container
       - ${CNODE_IPC}:/opt/cardano/ipc  # Mount the host IPC directory to the container
     ports:
-      - "3001:3001"  # Map port 6000 on the host to port 3001 on the container for external access
-      - "12798:12798"  # Publish Prometheus metrics on port 12798 for monitoring
+      - "${PORT}:3001"  # Map port on the host to port 3001 on the container for external access
+      - "${METRICS_PORT}:12798"  # Publish Prometheus metrics on port 12798 for monitoring
     restart: unless-stopped  # Restart the container unless it is explicitly stopped
