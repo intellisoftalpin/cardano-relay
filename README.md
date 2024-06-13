@@ -1,4 +1,4 @@
-# cardano-relay
+# Cardano Relay setup
 Docker compose file to quickly setup cardano relay 
 
 ## Installation guide
